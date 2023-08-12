@@ -1,7 +1,6 @@
 {
-  "name": "kafka-connect-poc",
+  "name": "kafka-connect-gcp-pubsub-poc",
   "config": {
-    "name": "kafka-connect-poc",
     "connector.class": "com.essexboy.camel.kafkaconnector.googlepubsub.CustomCamelGooglepubsubsinkSinkConnector",
     "tasks.max": 1,
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.essexboy</groupId>
-    <artifactId>kafka-connect-gcp-pubsub-poc1</artifactId>
+    <artifactId>kafka-connect-gcp-pubsub-poc</artifactId>
     <version>0.1</version>
 
     <name>Camel-Kafka-Connector :: google-pubsub</name>
