@@ -1,0 +1,2 @@
+export KAFKA=172.28.0.3
+export KAFKACONNECT=172.28.0.4

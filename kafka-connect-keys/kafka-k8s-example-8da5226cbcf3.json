@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "kafka-k8s-example",
+  "private_key_id": "8da5226cbcf30cdef20b01e6cd987bb71e5c096a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC/NZLlyNmE7AQs\nx5FuARcYlIMuXySwsUCzqSs+XI0adXdxA1zxl3ds+54sg0EIxnrRWYFG2SYjeHRR\ndvJQpHdoEsQlXIoRD4yRmJuzjGnrjwIi4sgPEZkJ/QM/Z9SFn0azPQqCw93vjnT+\nO81qYZVzi/n/FDVzDMZScXeW48uvdhcwUbj+xbau11Bj8HV/yYeX7/Q1gsbdhiqJ\nd1zsZwZP1+zfYzeZDRzfxHwXvDpjga4GQ1va7A/yp5X4gg433n1VW75eV+1FxEz0\n9XydKqS5OwsDKJOTumaPhMZkBIe0H48SCEATgBjyNSoXzEFfitWunwwZPSM822FI\nsOMsgzLRAgMBAAECggEAC1tCyXrsl+tma1QyUhm2meUytiOsn8G0V4Ne/BQGRa23\nwY6nA9qYm1CFvkwwpfU3ZNUbg3Yo4KsSIgdF+LYO+T+Blrw8f0tIkJpzN3aZ0SXA\nFUs5wYLcn4IvceHwZnwNeH5x8A6y8RwpfNLXlkeb1zY3a7/zFX1rD0kZ1qx6i9YF\n7RmEFQjRTagNZZ8rXLUy4S4d2ebfA5mj9ybhZg+zQIDp35D/pZRmgz9d0MMxfBXz\nzS2dLvvKsk+purTemgSeNwffMWpSeqH2yrSM2qpGJYXjSXvaCXUgII8i6HHgHSnp\nMZymP8F2s0guXdMuls6wh5CFQQZg8DBDYhdPf9ZvoQKBgQDtlRxVOCdO28dxC3fm\nS7nIUKvdVrZmajf9rSgJBNDv718YBAtpAnVXQ+AD//NuYCV++/Qt8zCZdGmNSOnn\nFvkkIoVVjK+hEJu9GX7UzOumi2cyDadoIsowz19wJeGJow3r1HlYEIjEcjmwmQkG\nXc/7lOdh68UTu8sx1epDNMRisQKBgQDOCCymsBypwDytiPZxA/S+UgPo1MMiMsBo\nI9KgkvTJLg/U8+ISRGU/UxHoLLK8Ygm/BQU+dtil7RFFivFC5PMpM9F/xAFdDS3U\nEZXAfcSaDTAHz6Q7L0pl0s6JcTuIV62TeJAcki37hxbJnPrmqMap/ZCxP7T5D3Fp\nRckhZhSaIQKBgQCb+fMZ973Gxf+QNelHppuX6W6L5+vkHQQZZV8NXL4XZ93UlIMx\nM835trQRrC4TXsf/MEbFDA3yET1i5mW5s5lpochLvAtqAM9ePKjJ6KclNgxQDirD\n8WMw3FRZ+mSxyfzPwTTRHjnMTvmU+UO1jE2Ja97kqLdAF2B1nW0pJjFwYQKBgEdQ\nFQRtGL64x0fZjFN55xCpGqlQW2pO3sItBA6ITyoDQ3+WGr3v5ouQmTYfoo4J8Q2p\nEzOXt01XTQ8hFHju/itYwD7U/RPUJ/SrUYYbAh3ASsupV1MU/09XNB3mj5CVqILO\nzDLXdgsFqyGFsGJ+MKVOGvL+9gjvC3ZArWleB+uBAoGBANypBkvNBZqSqYP3f0IC\nithCDKf64m8hsZKiiNDlXMZN5CV3Pjya/rbasL1eI8TR1O2hFQmiP6y+NSSJkcGs\nae74+/OwTlPPiMwr4G0yHO4oivUI4m4136qdRb+Vs+PpqmsTsYzdni3OhTPaVgAg\n8rx5cjCVJdjwn3flTvE+68Wu\n-----END PRIVATE KEY-----\n",
+  "client_email": "kafka-connect-poc@kafka-k8s-example.iam.gserviceaccount.com",
+  "client_id": "116462599041341693158",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kafka-connect-poc%40kafka-k8s-example.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

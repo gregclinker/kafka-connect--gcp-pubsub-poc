@@ -1,0 +1,16 @@
+{
+  "name": "kafka-connect-poc",
+  "config": {
+    "name": "kafka-connect-poc",
+    "connector.class": "com.essexboy.camel.kafkaconnector.googlepubsub.CustomCamelGooglepubsubSinkConnector",
+    "tasks.max": 1,
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "topics": "pubsub-topic",
+    "camel.sink.path.destinationName": "greg-test1",
+    "camel.sink.path.projectId": "kafka-k8s-example",
+    "camel.sink.contentLogLevel": "DEBUG"
+  }
+}
+
+
