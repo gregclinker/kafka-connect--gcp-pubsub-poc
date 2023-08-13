@@ -6,21 +6,25 @@
 clean up docker first if you need to
 ```shell script
 $ ./cleanDocker.sh 
-Deleted Networks:
-kafka-connect-gcp-pubsub-poc1_default
-
+$ ./cleanDocker.sh 
+docker system prune -f ; docker network prune -f ; docker volume prune -f ; docker rm -f -v 377465a71015
+050e607c31dd
+bbf22eb3471b
 Total reclaimed space: 0B
 Total reclaimed space: 0B
-3a58f7873762
-b3cd238e2d30
-8a87d020d893
+377465a71015
+050e607c31dd
+bbf22eb3471b
 ```
 start zookeeper, kafka & kafka-connect using docker compose & grab the IPs of each
 ```shell script
 $ ./up.sh 
+docker-compose up -d
 Creating zookeeper ... done
 Creating kafka     ... done
 Creating kafkaconnect ... done
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kafka  | awk '{print export KAFKA=}' > setKafka.sh
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' kafkaconnect  | awk '{print export KAFKACONNECT=}' >> setKafka.sh
 192.168.0.3 kafka
 192.168.0.4 kafkaconnect
 ```
@@ -33,16 +37,23 @@ $ . setKafka.sh ; echo $KAFKA ; echo $KAFKACONNECT
 
 ### create a test topic
 ```shell script
-$ ./create-test-topics.sh 
-192.168.0.3:29092
+/opensource/kafka_2.13-3.1.0/bin/kafka-topics.sh --bootstrap-server=192.168.0.3:29092 --create --if-not-exists --topic pubsub-topic --partitions 1 --replication-factor 1
 Created topic pubsub-topic.
 ```
 
 ```shell script
 $ ./describe-all-topics.sh 
-192.168.0.3:29092
-Topic: quickstart-config	TopicId: Ec7Dz_TETByXADjwiPl0Ww	PartitionCount: 1	ReplicationFactor: 1	Configs: cleanup.policy=compact
+$ ./describe-all-topics.sh | head
+/opensource/kafka_2.13-3.1.0/bin/kafka-topics.sh --bootstrap-server=192.168.0.3:29092 --describe
+Topic: quickstart-config	TopicId: cNhArKGgRiG7DrLT6WIL6w	PartitionCount: 1	ReplicationFactor: 1	Configs: cleanup.policy=compact
 	Topic: quickstart-config	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+Topic: pubsub-topic	TopicId: SSznTOeuRviQJCIYwQI9Jg	PartitionCount: 1	ReplicationFactor: 1	Configs: 
+	Topic: pubsub-topic	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+Topic: quickstart-offsets	TopicId: KChPcWu5QLatVWMgAVMX1g	PartitionCount: 25	ReplicationFactor: 1	Configs: cleanup.policy=compact
+	Topic: quickstart-offsets	Partition: 0	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: quickstart-offsets	Partition: 1	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: quickstart-offsets	Partition: 2	Leader: 1001	Replicas: 1001	Isr: 1001
+	Topic: quickstart-offsets	Partition: 3	Leader: 1001	Replicas: 1001	Isr: 1001
 ```
 ### build and install the custom connector
 build the jars
