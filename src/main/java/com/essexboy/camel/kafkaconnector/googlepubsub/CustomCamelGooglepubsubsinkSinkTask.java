@@ -19,7 +19,7 @@ public class CustomCamelGooglepubsubsinkSinkTask extends CamelGooglepubsubsinkSi
         super.put(sinkRecords);
     }
 
-    // don't print the value
+    // don't print the value?
     public String toString(SinkRecord sinkRecord) {
         return "SinkRecord{kafkaOffset=" + sinkRecord.kafkaOffset()
                 + ", timestamp=" + sinkRecord.timestamp()
@@ -29,6 +29,7 @@ public class CustomCamelGooglepubsubsinkSinkTask extends CamelGooglepubsubsinkSi
                 + ", key=" + sinkRecord.key()
                 + ", keySchema=" + sinkRecord.keySchema()
                 + ", valueSchema=" + sinkRecord.valueSchema()
+                + ", value=" + sinkRecord.value()
                 + ", headers=" + sinkRecord.headers() + '}';
     }
 }
