@@ -6,7 +6,6 @@
 clean up docker first if you need to
 ```shell script
 $ ./cleanDocker.sh 
-$ ./cleanDocker.sh 
 docker system prune -f ; docker network prune -f ; docker volume prune -f ; docker rm -f -v 377465a71015
 050e607c31dd
 bbf22eb3471b
@@ -42,7 +41,6 @@ Created topic pubsub-topic.
 ```
 
 ```shell script
-$ ./describe-all-topics.sh 
 $ ./describe-all-topics.sh | head
 /opensource/kafka_2.13-3.1.0/bin/kafka-topics.sh --bootstrap-server=192.168.0.3:29092 --describe
 Topic: quickstart-config	TopicId: cNhArKGgRiG7DrLT6WIL6w	PartitionCount: 1	ReplicationFactor: 1	Configs: cleanup.policy=compact
@@ -70,11 +68,13 @@ docker restart kafkaconnect
 ```  
 install the connector with the kafka-connect API
 ```shell script
-curl -s -X POST  -H "Content-Type: application/json" "http://$KAFKACONNECT:28083/connectors" --data @test-connector.json
-```  
-inspect the connector
-```shell script
-$ curl -s -X GET "http://$KAFKACONNECT:28083/connectors/kafka-connect-gcp-pubsub-poc" | jq .
+$ ./setConnector.sh 
+create
+curl -s -X POST  -H Content-Type: application/json http://192.168.0.4:28083/connectors --data @test-connector.json
+{"name":"kafka-connect-gcp-pubsub-poc","config":{"connector.class":"com.essexboy.camel.kafkaconnector.googlepubsub.CustomCamelGooglepubsubsinkSinkConnector","tasks.max":"1","key.converter":"org.apache.kafka.connect.storage.StringConverter","value.converter":"org.apache.kafka.connect.storage.StringConverter","topics":"pubsub-topic","camel.kamelet.google-pubsub-sink.destinationName":"greg-test1","camel.kamelet.google-pubsub-sink.projectId":"kafka-k8s-example","camel.sink.contentLogLevel":"DEBUG","name":"kafka-connect-gcp-pubsub-poc"},"tasks":[],"type":"sink"}
+
+list
+curl -s -X GET http://192.168.0.4:28083/connectors/kafka-connect-gcp-pubsub-poc | jq .
 {
   "name": "kafka-connect-gcp-pubsub-poc",
   "config": {
@@ -100,8 +100,8 @@ $ curl -s -X GET "http://$KAFKACONNECT:28083/connectors/kafka-connect-gcp-pubsub
 send some test traffic to the topic
 ```shell script
 $ ./produce.sh 
-192.168.0.3
-10 records sent, 33.222591 records/sec (0.01 MB/sec), 47.20 ms avg latency, 291.00 ms max latency, 20 ms 50th, 291 ms 95th, 291 ms 99th, 291 ms 99.9th.
+/opensource/kafka_2.13-3.1.0/bin/kafka-producer-perf-test.sh --producer-props bootstrap.servers=192.168.0.3:29092 --num-records=10 --record-size=200 --throughput=-1 --topic=pubsub-topic
+10 records sent, 30.487805 records/sec (0.01 MB/sec), 52.70 ms avg latency, 316.00 ms max latency, 24 ms 50th, 316 ms 95th, 316 ms 99th, 316 ms 99.9th.
 ```  
 
 
