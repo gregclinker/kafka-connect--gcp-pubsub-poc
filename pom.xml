@@ -67,7 +67,7 @@
                         </goals>
                         <configuration>
                             <excludeGroupIds>com.fasterxml.jackson.core,org.apache.kafka</excludeGroupIds>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <outputDirectory>${project.basedir}/kafka-connect-jars</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>

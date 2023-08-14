@@ -58,10 +58,6 @@ build the jars
 ```shell script
 mvn clean install -DskipTests
 ```
-copy all the jars collated by the maven maven-dependency-plugin to the volume mounted kafka-connect plugins
-```shell script
-cp target/*.jar kafka-connect-jars/
-```  
 restart kafka connect
 ```shell script
 docker restart kafkaconnect
